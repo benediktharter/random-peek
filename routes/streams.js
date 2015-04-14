@@ -14,8 +14,8 @@ router.get('/', function(req, res) {
 	var oEmbedTweets = [], tweets = [],
 
 	params = {
-		q : 'periscope.tv',
-		result_type : 'recent',
+		q : "periscope.tv",
+		result_type : "recent",
 		count : TWEET_COUNT
 	};
 
