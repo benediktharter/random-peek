@@ -1,54 +1,44 @@
 <!doctype html>
 <html lang="en" ng-app="Twitter">
-   <head>
-      <meta charset="utf-8">
-      <title><%= title %></title>
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-      <link rel='stylesheet' href='/stylesheets/StreamList.css' />
-      <link rel="icon" type="image/png" href="images/peek-sqr.png">
-      <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular.min.js"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular-resource.min.js"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular-sanitize.min.js"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/masonry/3.1.5/masonry.pkgd.min.js"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
-      <script src="//platform.twitter.com/widgets.js"></script>
-      <script src="/javascripts/StreamList.js"></script>
-	  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-61849601-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-   </head>
-   <body>
-      <div id="wrap">
-         <!-- the root element of the view assigned to the TweetList javascript controller-->
-         <div ng-controller="StreamList">
-            <nav class="navbar  navbar-inverse navbar-fixed-top ">
-               <button type="button"  style="display: block; width: 100%;" class="btn navbar-btn btn-info" ng-click="getStreams()">Peek!</button>
-            </nav>
-            <div class="clearfix">
-               <div class="col-lg-12">
-                  <div id="stream-list"  ng-show="loaded">
-                     <!-- this div will repeat for every tweet object in the array using a template-expanding directive -->
-                     <div ng-repeat="stream in streamsResult" class="stream-item">
-                        <!-- sanitized HTML binding -->
-                        <div ng-bind-html="stream.oEmbed.html"></div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <footer class="footer">
-            <div class="container">
-               <p class="text-muted"> <img class="peek-small" src="images/peek.png" /> Random Peek</p>
-            </div>
-         </footer>
-      </div>
-   </body>
+	<head>
+		<meta charset="utf-8">
+		<title><%= title %></title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link rel='stylesheet' href='/stylesheets/StreamList.css' />
+		<link rel="icon" type="image/png" href="images/peek-sqr.png">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular-resource.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular-sanitize.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/masonry/3.1.5/masonry.pkgd.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
+		<script src="//platform.twitter.com/widgets.js"></script>
+		<script src="/javascripts/StreamList.js"></script>
+		<script>
+			<!-- Google Analytics Code -->
+		</script>
+	</head>
+	<body>
+		<div id="wrap">
+			 <div ng-controller="StreamList">
+				<nav class="navbar  navbar-inverse navbar-fixed-top ">
+					<button type="button"  style="display: block; width: 100%;" class="btn navbar-btn btn-info" ng-click="getStreams()">Peek!</button>
+				</nav>
+				<div class="clearfix">
+					<div class="col-lg-12">
+						<div id="stream-list"  ng-show="loaded">
+						 	<div ng-repeat="stream in streamsResult" class="stream-item">
+							 	<div ng-bind-html="stream.oEmbed.html"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<footer class="footer">
+				<div class="container">
+					<p class="text-muted"> <img class="peek-small" src="images/peek.png" /> Random Peek</p>
+				</div>
+			</footer>
+		</div>
+	</body>
 </html>
